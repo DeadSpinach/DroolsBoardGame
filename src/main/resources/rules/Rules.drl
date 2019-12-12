@@ -1,0 +1,977 @@
+package com.sample
+import javax.swing.JOptionPane
+import javax.swing.JFrame
+import org.kie.api.runtime.KieRuntime
+import javax.swing.JRadioButton
+import javax.swing.JPanel
+global JFrame frame
+global javax.swing.JTextArea textArea
+import java.util.ArrayList
+import java.util.List
+import java.util.Arrays;
+import java.util.ArrayList
+import javax.swing.JLabel;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import com.sample.Answer;
+
+rule "Init"
+	when
+	then
+		String[] options = {"Yes"};
+		String q = quetext(1);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert (ans);
+		
+end
+
+rule "Q2"
+	when
+		Answer(question == quetext(1) && answer == "Yes")
+	then
+		String[] options = {"Fantasy", "Horror", "Science Fiction"};
+		String q = quetext(2);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q3"
+	when
+		Answer(question == quetext(2) && answer == "Fantasy")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(3);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q4"
+	when
+		Answer(question == quetext(3) && answer == "Yes")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(4);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q5"
+	when
+		Answer(question == quetext(4) && answer == "Yes")
+	then
+		String[] options = {"Just the two of us", "More than two"};
+		String q = quetext(5);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q6"
+	when
+		Answer(question == quetext(5) && answer == "Just the two of us")
+	then
+		String[] options = {"Fight", "Maneuver"};
+		String q = quetext(6);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q7"
+	when
+		Answer(question == quetext(5) && answer == "More than two")
+	then
+		String[] options = {"Cooperative", "Competitive"};
+		String q = quetext(7);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q8"
+	when
+		Answer(question == quetext(7) && answer == "Cooperative")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(8);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q9"
+	when
+		Answer(question == quetext(7) && answer == "Competitive")
+	then
+		String[] options = {"Yes", "Just one game"};
+		String q = quetext(9);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q10"
+	when
+		Answer(question == quetext(3) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(10);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q11"
+	when
+		Answer(question == quetext(10) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(11);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q12"
+	when
+		Answer(question == quetext(11) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(12);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q13"
+	when
+		Answer(question == quetext(12) && answer == "Yes")
+	then
+		String[] options = {"Competitive", "Cooperative"};
+		String q = quetext(13);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q14"
+	when
+		Answer(question == quetext(12) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(14);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q15"
+	when
+		Answer(question == quetext(14) && answer == "No")
+	then
+		String[] options = {"Sounds fun!", "Not for me"};
+		String q = quetext(15);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q16"
+	when
+		Answer(question == quetext(15) && answer == "Sounds fun!")
+	then
+		String[] options = {"Cooperative", "Competitive"};
+		String q = quetext(16);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q17"
+	when
+		Answer(question == quetext(15) && answer == "Not for me")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(17);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q18"
+	when
+		Answer(question == quetext(17) && answer == "Yes")
+	then
+		String[] options = {"Yes! It's gotta be big", "No, keep it quick"};
+		String q = quetext(18);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q19"
+	when
+		Answer(question == quetext(17) && answer == "No")
+	then
+		String[] options = {"Running a business", "Relaxing after work", "Annihilating your business rivals"};
+		String q = quetext(19);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q20"
+	when
+		Answer(question == quetext(11) && answer == "Yes")
+	then
+		String[] options = {"Competitive","Cooperative - if I can backstab", "Cooperative"};
+		String q = quetext(20);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q21"
+	when
+		Answer(question == quetext(20) && answer == "Competitive")
+	then
+		String[] options = {"Yes, Strategy matters", "No, it's the experience that counts"};
+		String q = quetext(21);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q22"
+	when
+		Answer(question == quetext(21) && answer == "No, it's the experience that counts")
+	then
+		String[] options = {"Yes", "Not as much as combat!"};
+		String q = quetext(22);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q23"
+	when
+		Answer(question == quetext(20) && answer == "Cooperative")
+	then
+		String[] options = {"Boards", "Cards"};
+		String q = quetext(23);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q24"
+	when
+		Answer(question == quetext(2) && answer == "Horror")
+	then
+		String[] options = {"Zombies", "Cthulhu", "Classic Movie Monsters"};
+		String q = quetext(24);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q25"
+	when
+		Answer(question == quetext(24) && answer == "Zombies")
+	then
+		String[] options = {"Board Game", "Card Game"};
+		String q = quetext(25);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q26"
+	when
+		Answer(question == quetext(25) && answer == "Board Game")
+	then
+		String[] options = {"Survival of the Fittest", "Zombies vs. Humans"};
+		String q = quetext(26);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q27"
+	when
+		Answer(question == quetext(26) && answer == "Zombies vs. Humans")
+	then
+		String[] options = {"We're all humans here", "Sure! Braaaains..."};
+		String q = quetext(27);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q28"
+	when
+		Answer(question == quetext(24) && answer == "Cthulhu")
+	then
+		String[] options = {"Well, maybe a little...", "Side with Elder Gods? No! Humanity stands together"};
+		String q = quetext(28);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q29"
+	when
+		Answer(question == quetext(28) && answer == "Side with Elder Gods? No! Humanity stands together")
+	then
+		String[] options = {"I want an epic!", "Gateway, please"};
+		String q = quetext(29);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q30"
+	when
+		Answer(question == quetext(24) && answer == "Classic Movie Monsters")
+	then
+		String[] options = {"I'll crush you!", "I'd rather be a detective"};
+		String q = quetext(30);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q31"
+	when
+		Answer(question == quetext(2) && answer == "Science Fiction")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(31);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q32"
+	when
+		Answer(question == quetext(31) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(32);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q33"
+	when
+		Answer(question == quetext(32) && answer == "Yes")
+	then
+		String[] options = {"Competitive", "Cooperative"};
+		String q = quetext(33);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q34"
+	when
+		Answer(question == quetext(32) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(34);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q35"
+	when
+		Answer(question == quetext(34) && answer == "No")
+	then
+		String[] options = {"Of course!", "That's not right!"};
+		String q = quetext(35);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q36"
+	when
+		Answer(question == quetext(35) && answer == "Of course!")
+	then
+		String[] options = {"We've got all day", "It is a work night..."};
+		String q = quetext(36);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q37"
+	when
+		Answer(question == quetext(35) && answer == "That's not right!")
+	then
+		String[] options = {"That sounds fun", "Maybe not"};
+		String q = quetext(37);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q38"
+	when
+		Answer(question == quetext(37) && answer == "Maybe not")
+	then
+		String[] options = {"Sure, that works", "I like my boards"};
+		String q = quetext(38);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q39"
+	when
+		Answer(question == quetext(38) && answer == "Sure, that works")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(39);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q40"
+	when
+		Answer(question == quetext(39) && answer == "No")
+	then
+		String[] options = {"Yes", "No"};
+		String q = quetext(40);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q41"
+	when
+		Answer(question == quetext(38) && answer == "I like my boards")
+	then
+		String[] options = {"Athlete", "Galactic Corporation", "Space Crew on a Mission", "Merchant"};
+		String q = quetext(41);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q42"
+	when
+		Answer(question == quetext(41) && answer == "Space Crew on a Mission")
+	then
+		String[] options = {"Teamwork and high-speed planning", "Teamwork and dexterity"};
+		String q = quetext(42);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q43"
+	when
+		Answer(question == quetext(41) && answer == "Merchant")
+	then
+		String[] options = {"It's serious business", "Nah, we just want a giggle"};
+		String q = quetext(43);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q44"
+	when
+		Answer(question == quetext(37) && answer == "That sounds fun")
+	then
+		String[] options = {"In Space", "For the Galactic Centre", "For Earth!"};
+		String q = quetext(44);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "Q45"
+	when
+		Answer(question == quetext(31) && answer == "Yes")
+	then
+		String[] options = {"Adventure", "Pew! Pew!"};
+		String q = quetext(45);
+		Answer ans = new Answer(q, " ");
+		int result = askabout(ans, options);
+		ans.setAnswer(options[result]);
+		insert(ans);
+end
+
+rule "A1"
+	when
+		Answer(question == quetext(4) && answer == "No")
+	then
+		showresult("The game for you is... Munchkin!");
+end
+
+rule "A2"
+	when
+		Answer(question == quetext(6) && answer == "Fight")
+	then
+		showresult("The game for you is... Claustrophobia!");
+end
+
+rule "A3"
+	when
+		Answer(question == quetext(6) && answer == "Maneuver")
+	then
+		showresult("The game for you is... Dungeon Twister 2: Prison!");
+end
+
+rule "A4"
+	when
+		Answer(question == quetext(8) && answer == "Yes")
+	then
+		showresult("The game for you is... Mice & Mystics!");
+end
+
+rule "A5"
+	when
+		Answer(question == quetext(8) && answer == "No")
+	then
+		showresult("The game for you is... Dungeons and Dragons: Legend of Drizzt!");
+end
+
+rule "A6"
+	when
+		Answer(question == quetext(9) && answer == "Yes")
+	then
+		showresult("The game for you is... Descent: Journeys in the Dark 2nd Edition!");
+end
+
+rule "A7"
+	when
+		Answer(question == quetext(9) && answer == "Just one game")
+	then
+		showresult("The game for you is... Dungeon Run!");
+end
+
+rule "A8"
+	when
+		Answer(question == quetext(13) && answer == "Competitive")
+	then
+		showresult("The game for you is... Thunderstone: Advance!");
+end
+
+rule "A9"
+	when
+		Answer(question == quetext(13) && answer == "Cooperative")
+	then
+		showresult("The game for you is... Rune Age!");
+end
+
+rule "A10"
+	when
+		Answer(question == quetext(14) && answer == "Yes")
+	then
+		showresult("The game for you is... War of the Ring!");
+end
+
+rule "A11"
+	when
+		Answer(question == quetext(16) && answer == "Competitive")
+	then
+		showresult("The game for you is... Dragon Rampage!");
+end
+
+rule "A12"
+	when
+		Answer(question == quetext(16) && answer == "Cooperative")
+	then
+		showresult("The game for you is... Castle Panic!");
+end
+
+rule "A13"
+	when
+		Answer(question == quetext(18) && answer == "Yes! It's gotta be big")
+	then
+		showresult("The game for you is... Runewars!");
+end
+
+rule "A14"
+	when
+		Answer(question == quetext(18) && answer == "No, keep it quick")
+	then
+		showresult("The game for you is... Small World!");
+end
+
+rule "A15"
+	when
+		Answer(question == quetext(19) && answer == "Running a business")
+	then
+		showresult("The game for you is... Dungeon Petz!");
+end
+
+rule "A16"
+	when
+		Answer(question == quetext(19) && answer == "Relaxing after work")
+	then
+		showresult("The game for you is... Red Dragon Inn!");
+end
+
+rule "A17"
+	when
+		Answer(question == quetext(19) && answer == "Annihilating your business rivals")
+	then
+		showresult("The game for you is... Mage Wars!");
+end
+
+rule "A18"
+	when
+		Answer(question == quetext(21) && answer == "Yes, Strategy matters")
+	then
+		showresult("The game for you is... Mage Knight!");
+end
+
+rule "A19"
+	when
+		Answer(question == quetext(22) && answer == "Yes")
+	then
+		showresult("The game for you is... Tales of the Arabian Nights!");
+end
+
+rule "A20"
+	when
+		Answer(question == quetext(22) && answer == "Not as much as combat!")
+	then
+		showresult("The game for you is... Talisman!");
+end
+
+rule "A21"
+	when
+		Answer(question == quetext(20) && answer == "Cooperative - if I can backstab!")
+	then
+		showresult("The game for you is... Shadows Over Camelot!");
+end
+
+rule "A22"
+	when
+		Answer(question == quetext(23) && answer == "Boards")
+	then
+		showresult("The game for you is... Defenders of the Realm!");
+end
+
+rule "A23"
+	when
+		Answer(question == quetext(23) && answer == "Cards")
+	then
+		showresult("The game for you is... Lord of the Rings Living Card Game!");
+end
+
+rule "A24"
+	when
+		Answer(question == quetext(10) && answer == "Yes")
+	then
+		showresult("The game for you is... Dungeon Lords!");
+end
+
+rule "A25"
+	when
+		Answer(question == quetext(26) && answer == "Survival of the Fittest")
+	then
+		showresult("The game for you is... City of Horror!");
+end
+
+rule "A26"
+	when
+		Answer(question == quetext(27) && answer == "We're all humans here")
+	then
+		showresult("The game for you is... Zombicide!");
+end
+
+rule "A27"
+	when
+		Answer(question == quetext(27) && answer == "Sure! Braaaains...")
+	then
+		showresult("The game for you is... Last Night on Earth!");
+end
+
+rule "A28"
+	when
+		Answer(question == quetext(25) && answer == "Card Game")
+	then
+		showresult("The game for you is... Resident Evil Deckbuilding Game!");
+end
+
+rule "A29"
+	when
+		Answer(question == quetext(28) && answer == "Well, maybe a little...")
+	then
+		showresult("The game for you is... Mansions of Madness!");
+end
+
+rule "A30"
+	when
+		Answer(question == quetext(29) && answer == "I want an epic!")
+	then
+		showresult("The game for you is... Arkham Horror!");
+end
+
+rule "A31"
+	when
+		Answer(question == quetext(29) && answer == "Gateway, please")
+	then
+		showresult("The game for you is... Elder Sign!");
+end
+
+rule "A32"
+	when
+		Answer(question == quetext(30) && answer == "I'll crush you!")
+	then
+		showresult("The game for you is... Nightfall!");
+end
+
+rule "A33"
+	when
+		Answer(question == quetext(30) && answer == "I'd rather be a detective")
+	then
+		showresult("The game for you is... Betrayal at House on the Hill!");
+end
+
+rule "A34"
+	when
+		Answer(question == quetext(33) && answer == "Competitive")
+	then
+		showresult("The game for you is... Star Trek: Fleet Captains!");
+end
+
+rule "A35"
+	when
+		Answer(question == quetext(33) && answer == "Cooperative")
+	then
+		showresult("The game for you is... Star Trek Expeditions!");
+end
+
+rule "A36"
+	when
+		Answer(question == quetext(34) && answer == "Yes")
+	then
+		showresult("The game for you is... Battlestar Galactica: the Board Game!");
+end
+
+rule "A37"
+	when
+		Answer(question == quetext(36) && answer == "We've got all day")
+	then
+		showresult("The game for you is... Twilight Imperium: 3rd Edition!");
+end
+
+rule "A38"
+	when
+		Answer(question == quetext(39) && answer == "Yes")
+	then
+		showresult("The game for you is... Core Worlds!");
+end
+
+rule "A39"
+	when
+		Answer(question == quetext(40) && answer == "Yes")
+	then
+		showresult("The game for you is... Android: Netrunner!");
+end
+
+rule "A40"
+	when
+		Answer(question == quetext(40) && answer == "No")
+	then
+		showresult("The game for you is... Race for the Galaxy!");
+end
+
+rule "A41"
+	when
+		Answer(question == quetext(41) && answer == "Athlete")
+	then
+		showresult("The game for you is... Dreadball: The Futuristic Sport Game!");
+end
+
+rule "A42"
+	when
+		Answer(question == quetext(41) && answer == "Galactic Corporation")
+	then
+		showresult("The game for you is... Phantom League!");
+end
+
+rule "A43"
+	when
+		Answer(question == quetext(42) && answer == "Teamwork and high-speed planning")
+	then
+		showresult("The game for you is... Space Alert!");
+end
+
+rule "A44"
+	when
+		Answer(question == quetext(42) && answer == "Teamwork and dexterity")
+	then
+		showresult("The game for you is... Space Cadets!");
+end
+
+rule "A45"
+	when
+		Answer(question == quetext(43) && answer == "It's serious business")
+	then
+		showresult("The game for you is... Merchant of Venus!");
+end
+
+rule "A46"
+	when
+		Answer(question == quetext(43) && answer == "Nah, we just want a giggle")
+	then
+		showresult("The game for you is... Galaxy Trucker!");
+end
+
+rule "A47"
+	when
+		Answer(question == quetext(44) && answer == "In Space")
+	then
+		showresult("The game for you is... Cosmic Encounter!");
+end
+
+rule "A48"
+	when
+		Answer(question == quetext(44) && answer == "For the Galactic Centre")
+	then
+		showresult("The game for you is... Rex: Final Days of an Empire!");
+end
+
+rule "A49"
+	when
+		Answer(question == quetext(44) && answer == "For Earth!")
+	then
+		showresult("The game for you is... Conquest of Planet Earth!");
+end
+
+rule "A50"
+	when
+		Answer(question == quetext(45) && answer == "Adventure")
+	then
+		showresult("The game for you is... Star Wars Living Card Game!");
+end
+
+rule "A51"
+	when
+		Answer(question == quetext(45) && answer == "Pew! Pew!")
+	then
+		showresult("The game for you is... Star Wars: X-Wing Miniature Game!");
+end
+
+function String quetext(int n){
+	switch(n){
+		case 1: return "Are you ready to start?";
+		case 2: return "What's your favorite theme?";
+		case 3: return "Do you want a dungeon crawling adventure?";
+		case 4: return "A serious one?";
+		case 5: return "How many players?";
+		case 6: return "Crush or out-maneuver your enemies?";
+		case 7: return "Cooperative or Competitive?";
+		case 8: return "Playing with kids?";
+		case 9: return "Do you want a campaign?";
+		case 10: return "How about managing your own dungeon?";
+		case 11: return "Want the whole quest thing, eh?";
+		case 12: return "Do you like Deckbuilders?";
+		case 13: return "Competitive Deck Builders?";
+		case 14: return "Lord of the Rings fan?";
+		case 15: return "How about castle defense?";
+		case 16: return "Cooperative or competitive?";
+		case 17: return "Conquest in a fantasy world?";
+		case 18: return "Epic?";
+		case 19: return "Everday life, eh?";
+		case 20: return "Competitive or Cooperative?";
+		case 21: return "Mind getting trounced by random events?";
+		case 22: return "Is storytelling important?";
+		case 23: return "Board game or card game?";
+		case 24: return "What's your favorite monster?";
+		case 25: return "Boards or cards?";
+		case 26: return "Survival of the Fittest or Zombies vs Humans?";
+		case 27: return "Does anyone wants to play as the zombies?";
+		case 28: return "Ever wanted to play on his side?";
+		case 29: return "An epic investigation or a gateway game?";
+		case 30: return "Card-based combat or a mystery?";
+		case 31: return "Star Wars fan?";
+		case 32: return "Star Trek, then?";
+		case 33: return "One-on-one, or working together?";
+		case 34: return "Battlestar Galactica?";
+		case 35: return "Explore, Expand, Exploit, and Exterminate?";
+		case 36: return "So, just how epic are we getting?";
+		case 37: return "How about being an alien race?";
+		case 38: return "How about a card game?";
+		case 39: return "A Deck Builder?";
+		case 40: return "A Living Card Game?";
+		case 41: return "If not an alien, I'll be a...";
+		case 42: return "How will you succeed?";
+		case 43: return "Seriously?";
+		case 44: return "Doing battle...";
+		case 45: return "Grand adventure or tactical space combat?";
+		default: return "Error";
+	}
+}	
+
+function int askabout(Answer ans, String[] options){
+	int x = JOptionPane.showOptionDialog(null, ans.getQuestion(),
+          "Strategy game helper",
+           JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+    return x;
+	}
+function void showresult(String title){
+	JOptionPane.showMessageDialog(null, title);
+}
+
+
